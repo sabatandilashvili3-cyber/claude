@@ -1,89 +1,105 @@
-# EvacMap — 20s Video Ad (Facebook + Instagram)
+# Build prompt: EVACMAP 22s video ad (Facebook + Instagram)
 
-**Concept:** *"When the alarm goes off, it's too late to draw the map."*
-Open with tension (alarm, darkness, confusion), then cut hard to calm, precise control: the EvacMap workspace building a live evacuation plan in seconds. The whole ad lives in two colors: **alarm red** (the problem) and **exit-sign green** (EvacMap). Every viewer already knows that green means "the way out", so the brand gets that meaning for free.
+> Paste everything below this line into Claude. Put any real assets you have in `assets/` first (see §6).
 
 ---
 
-## 1. Specs
+You are a senior motion designer and a React/TypeScript engineer. Build a **cinematic, edgy, 22-second vertical video ad** for **EVACMAP** in **Remotion**, render it to MP4, and check every frame you ship. The ad runs as paid Reels/Stories/Feed on Facebook and Instagram in **Georgia**, so the on-screen text is **Georgian first** with a small English mono subline, echoing the product's own website.
 
-| | |
-|---|---|
-| Length | 20s main cut, plus a 6s bumper cut (shots 1, 4 and 7) |
-| Formats | **9:16** (Reels/Stories, master), **4:5** (Feed), 1:1 (fallback) |
-| Safe zone (9:16) | Keep text out of the top 14% and bottom 20% (UI overlays) |
-| Sound | Designed to work **muted**: every key line is burned-in text |
-| Pace | Cut every 1.5–3s; first frame must stop the scroll |
+## 1. Product facts (use ONLY these; invent no features, numbers or claims)
 
-## 2. Look and type
+- **What it is:** a web app that turns an architectural floor plan into a printable evacuation plan. The tagline is **"ნახაზიდან საევაკუაციო გეგმამდე — 5 წუთში"** / *FROM FLOOR PLAN TO EVACUATION PLAN IN 5 MINUTES*.
+- **How it works (4 steps):**
+  1. **ატვირთე ნახაზი** / UPLOAD YOUR DRAWING: upload an architectural PDF or other vector drawing.
+  2. **დაადასტურე კედლები და კარები** / DETECT WALLS: EVACMAP detects walls and doors automatically, and you just check the result.
+  3. **მონიშნე გასასვლელები და „აქ ხართ“ წერტილები** / EXITS & YOU ARE HERE: mark the exits and the places where the plan will hang. EVACMAP builds the route automatically.
+  4. **ჩამოტვირთე მზა PDF** / DOWNLOAD · A4 / A3 / A2: you get a print-ready PDF, with a separate sheet for each "You are here" point.
+- **Routes follow the real geometry.** A route never crosses walls and always exits through real doors. The main route is a solid line, the alternative route is dashed, and routes can be edited by hand.
+- **The finished sheet includes:** the client's logo in the header (white-label), the main route (solid), the alternative route (dashed), ISO 7010 pictograms, a "You are here" point, **დარეკე 112** (call 112), the assembly point, a legend in Georgian and English, fire-action instructions in Georgian and English, and safety equipment marked on the plan (fire extinguishers, first-aid kit, electrical panel room).
+- **Pricing (VAT included):** **19₾** per floor, **9₾** per extra floor in the same building, **PRO 100₾/month** for unlimited floors and buildings. **The editor is free. You pay only when you download the final PDF.** Revisions and re-downloads are free for **12 months**.
+- **The problem it replaces:** today you send the drawing to a specialist and wait hours or days. Every floor is billed as separate work, and every change (a moved door, a new partition) means going back and paying again.
+- **Audience:** occupational health and safety (OHS) specialists, facility managers, architects and designers.
+- **Standards wording, exactly as the site uses it:** "ISO 7010" and "ტექნიკური რეგლამენტი №370". Do not write "certified" or "approved".
+- **URL:** `evac.hsai.app` · **CTA:** **დაიწყე უფასოდ** (Start free) · made by Omio Labs, the team behind HSAI.
 
-- **Palette:** Void black `#0A0B0D` · Alarm red `#FF2D2D` · Exit green `#00E07A` · Blueprint cyan `#5FD3FF` (thin lines only) · White `#F5F7FA`
-- **Headline font:** *Clash Display* Semibold (free, Fontshare). Alternatives: *Neue Machina* or *Space Grotesk* Bold. All caps, tight tracking (-2%).
-- **Body / UI labels:** *Inter* Medium.
-- **Data / timers:** *JetBrains Mono* (countdowns, coordinates, "ROUTE 02 — 38m").
-- **Text motion:** words slam in on the beat (scale 110% → 100%, 4-frame motion blur). Key words get a quick glitch/RGB-split in the red section and a clean mask-wipe reveal in the green section. Text never just fades.
-- **Camera language:** red section is handheld, Dutch angles, strobe. Green section is locked-off, smooth push-ins, top-down orthographic views. The visual style itself shows the shift from chaos to control.
+## 2. Creative concept: "Days → 5 minutes"
 
-## 3. Shot list (20s)
+The ad has two worlds:
+- **Red, glitchy, cramped:** the old way (waiting, per-floor invoices, paying again for every change).
+- **Calm green precision:** EVACMAP doing the work live. A grey drawing comes alive: walls are detected, routes draw themselves through the real doors, and it becomes a finished wall-ready sheet.
 
-| # | Time | Visual | On-screen text | Sound |
+The **"how it's made" moment is the hero**. The viewer should feel the satisfaction of the route drawing itself. The tone is confident, sharp and a little cheeky. It is not a fear ad: no fire footage, no panic.
+
+## 3. Storyboard: 30 fps, 660 frames, 1080×1920
+
+| # | Frames | Visual | On-screen text (exact) | Motion |
 |---|---|---|---|---|
-| 1 | 0.0–1.5 | Pitch black. A red strobe snaps on and shows a smoke-filled office corridor, handheld and shaky | **THE ALARM JUST WENT OFF.** (glitch in) | Fire alarm siren hits on frame 1 |
-| 2 | 1.5–3.5 | Fast cuts: feet hesitating at a split corridor, a hand on a locked door, a blurry exit sign through smoke | **WHICH WAY OUT?** | Siren + heartbeat bass |
-| 3 | 3.5–5.0 | Smash cut to silence. Black screen, monospace counter ticking `00:04` | **MOST TEAMS DON'T KNOW.** | Hard silence, single clock tick |
-| 4 | 5.0–8.0 | A white-line blueprint floor plan unfolds in 3D from darkness and settles top-down. Glowing **green route lines draw themselves** from every room to the exits | **EVACMAP.** then **KNOW THE WAY OUT.** | Deep sub-drop, then a clean synth pulse begins (~120 BPM) |
-| 5 | 8.0–13.0 | **Workspace montage** (real screen capture in a floating 3D device frame, slow push-in): drag floor plan in → exits snap into place → assembly point pin drops → route auto-calculates "ROUTE 02 · 38m · 41s" → zones color-code | Captions per beat: **UPLOAD.** · **MARK.** · **ROUTE.** · **DONE.** | Each UI action lands on a beat with a soft UI click |
-| 6 | 13.0–16.5 | The plan flies off the screen into a grid of phones and tablets that light up green one by one, and a wall-mounted QR evacuation sign glows | **EVERYONE HAS THE PLAN. INSTANTLY.** | Music builds |
-| 7 | 16.5–20.0 | Back in the corridor, now calm and lit. People walking (not running) in a clean line toward a glowing green exit. Final frame: logo on black, green underline wipes across | **EVACMAP** · **Build your evacuation plan in minutes.** · button: **TRY IT FREE →** | Music resolves on one final hit. Optional VO: "Know the way out." |
+| 1 | 0–36 | Black. A red hairline scan flickers. A grey architectural drawing lies tilted in 3D in the background, out of focus | **დღეები ლოდინში.** / mono sub `DAYS OF WAITING` | Word slams in (scale 1.15→1, 4-frame blur), RGB-split glitch on frames 0–6. A mono counter in the corner ticks up `00:00:00 → 72:00:00` |
+| 1b | 36–72 | The same drawing duplicates into a stack of 5 sheets, each stamped with a red "invoice" bar | **5 სართული = 5 ცალკე სამუშაო.** | Sheets stack with a hard snap per beat |
+| 1c | 72–108 | One door on the drawing flashes red, then the whole stack shakes | **კარი შეიცვალა? თავიდან გადაიხადე.** | Camera shake 3px, red flash, glitch out |
+| 2 | 108–150 | **Hard cut to silence.** Pure black, then one thin green line draws horizontally across the screen | **ან — 5 წუთი.** / `OR — 5 MINUTES` | Text reveals with a clean mask wipe left→right. No glitch from here on |
+| 3a | 150–225 | A floor plan drops in flat (top-down) and settles in grey linework. A step indicator `01 / 04` sits at the top | **ატვირთე ნახაზი** / `UPLOAD YOUR DRAWING` | Spring drop, soft shadow, slow push-in (scale 1→1.05 over the whole of scene 3) |
+| 3b | 225–300 | A scan line sweeps top→bottom. Walls light up white-cyan as it passes and door gaps glow | **კედლები — ავტომატურად** / `DETECT WALLS` | Scan line with a glow trail. Walls fade to the detected color, staggered by y position |
+| 3c | 300–375 | Green exit markers pop at 2 exits. A pulsing "You are here" pin drops. Then the **main route draws itself as a solid green line** through corridors and real door gaps, and the **alternative route draws dashed** | **გასასვლელები და „აქ ხართ“** / `EXITS & YOU ARE HERE` + small caption **მარშრუტი კედლებს არ კვეთს.** | Pins spring in. Routes animate with `strokeDashoffset`, with a small glowing head dot leading the line |
+| 3d | 375–450 | The plan zooms out and becomes a **finished A-series sheet**: header with a logo placeholder, the plan, a legend, a 112 box, fire instructions and an assembly point | **მზა PDF · A4 / A3 / A2** / `DOWNLOAD` | Sheet elements build in a stagger (header, then plan, then legend, then 112, then instructions). Three paper sizes A4 / A3 / A2 fan out behind it |
+| 4 | 450–540 | The sheet tilts in 3D like paper on a wall under a soft light sweep. Proof chips line up below it | Chips: **ISO 7010** · **ქართ. / ENG ლეგენდა** · **12 თვე უფასო შესწორებები** · small: `ტექნიკური რეგლამენტი №370` | 3D tilt (rotateY −12°→0°), a specular light sweep across the sheet, chips pop in on the beat |
+| 5 | 540–660 | Black. A large price, then the logo and CTA. A green route line draws an underline under the logo | **19₾** / **ერთ სართულზე** · then **რედაქტორი უფასოა. იხდი მხოლოდ ჩამოტვირთვისას.** · then **EVACMAP** · **ნახაზიდან საევაკუაციო გეგმამდე — 5 წუთში** · button **დაიწყე უფასოდ →** · `evac.hsai.app` | Price counts up 0→19. The button pulses once. Hold the final frame for at least 45 frames |
 
-**6s bumper:** Shot 1 (1.5s) → Shot 4 (2.5s) → logo + CTA (2s).
+**Bumper (6s, 180 frames):** scene 2 (opening on **საევაკუაციო გეგმა — 5 წუთში.**) → a compressed scene 3c (route-drawing hero, 75f) → scene 5 (CTA, 60f).
 
-## 4. AI video generator prompts
+## 4. Design system
 
-Use these in **Veo 3, Sora, Runway Gen-4, Kling or Hailuo**. Generate each shot separately (most tools produce 5–10s clips), then cut them together in CapCut / Premiere / DaVinci. Paste the style block at the end of every prompt so the shots match.
+- **Fonts (they must cover Georgian):**
+  - Headlines: **Noto Sans Georgian** 800–900, tight tracking (−1%).
+  - Body: Noto Sans Georgian 500.
+  - Mono sublines, counters and step numbers: **JetBrains Mono** 500, UPPERCASE, letter-spacing +8%.
+  - Load the fonts with `@remotion/google-fonts` and wait for them before rendering. **Never let Georgian fall back to a system font or show tofu boxes.**
+- **Colors:**
+  - Background `#0A0D12` with a faint 40px blueprint grid at 6% opacity.
+  - Drawing linework `#8A94A6`. Detected walls `#E8F1FF` with a cyan glow `#5FD3FF`.
+  - Safety green `#00B25A` for routes, exits, the CTA and the whole calm world.
+  - Alarm red `#E5322D`, used only in scene 1 and for the fire-extinguisher icons.
+  - Text: white `#F5F7FA`, secondary `#9AA4B2`.
+  - If `assets/brand.json` or screenshots show the real brand colors, use those instead.
+- **Cinematic finish:** a subtle film grain overlay (animated noise at about 4% opacity), a soft vignette, 3D perspective on the plan (`perspective: 1600px`), light sweeps, and slow continuous push-ins (nothing static ever sits completely still). Use springs (`damping` around 14) for UI elements and ease-in-out cubic for camera moves.
+- **Typography motion:** the red world uses slams with RGB-split glitch. The green world uses clean mask wipes and soft upward reveals (y +24px→0, opacity 0→1, 10 frames). Show at most two lines of headline at once. Keep mono sublines at 60% of headline width or less.
+- **Safe zones (9:16):** no text in the top 250px or bottom 380px, and 64px side margins.
 
-**Style block (append to every prompt):**
-> Cinematic commercial, anamorphic lens, shallow depth of field, high contrast, deep crushed blacks, color palette limited to alarm red #FF2D2D and emergency-exit green #00E07A with thin cyan blueprint lines, volumetric haze, subtle film grain, 24fps, premium tech brand aesthetic like an Apple or Nothing product launch film, vertical 9:16, no text, no logos, no watermarks.
+## 5. Build spec
 
-**Shot 1: The alarm**
-> Total darkness, then a red emergency strobe light flashes on and reveals a modern open-plan office corridor filling with light smoke. Handheld camera, slightly tilted Dutch angle, urgent shaky movement forward. Red light pulses rhythmically and throws hard shadows. Tense, claustrophobic. [style block]
+- **Remotion + TypeScript project.** Create three compositions:
+  - `Ad916`: 1080×1920, 660 frames.
+  - `Ad45`: 1080×1350, 660 frames, **re-laid out, not cropped**: smaller plan, text placed beside or below it.
+  - `Bumper916`: 1080×1920, 180 frames.
+- **Floor plan:** build it as a **hand-authored SVG** of a believable office floor of roughly 8 rooms, a corridor, 2 stairwell exits and real door gaps in the walls. Define the main and alternative route polylines so that they **pass only through door gaps and corridors and never cross a wall line**. Write a tiny unit check that tests every route segment against the wall segments for intersections, and make it pass.
+- **Real assets win.** If `assets/sample-a4.pdf` (or PNG), `assets/editor-*.png`, `assets/editor.mp4` or `assets/logo.svg` exist, use them:
+  - the real sample sheet in scene 3d/4;
+  - real editor screenshots or a recording inside a dark browser frame in scene 3, with your animated overlays (scan line, pins, routes) on top;
+  - the real logo in scene 5.
+  - Otherwise build stylized vector versions. Never fake readable UI text that the real product does not have.
+- **Icons:** use simple, clean vector safety icons (a running-figure exit sign on a green square, an extinguisher on a red square, a first-aid cross, a lightning bolt for the electrical room, an assembly-point arrows icon). Prefer icons from `assets/icons/` if provided.
+- **Audio:** if `assets/music.mp3` exists, add it with `<Audio>` and align the cuts to its beats (scene 2 must land in silence). Otherwise render without audio, list where the hits should land (frame numbers) in `AUDIO_CUES.md`, and include the music brief: *"22s modern minimal trailer cue: 0–3.6s glitchy distorted tension with ticking; 3.6–5s total silence; 5s sub-drop then a clean confident synth pulse at 120 BPM building with crisp percussion; one big resolving hit at 18s; tail to 22s. No vocals."*
+- **Render:**
+  - `out/evacmap-9x16.mp4`, `out/evacmap-4x5.mp4` and `out/evacmap-bumper-6s.mp4`, all H.264, yuv420p, CRF 18.
+  - A poster frame `out/poster.png` taken from scene 3c, with the route half-drawn.
+  - If Remotion can't download its headless browser, point it at an installed Chromium with `--browser-executable`.
 
-**Shot 2: Confusion**
-> Fast close-up sequence: a person's sneakers stop abruptly at a T-junction in a smoky corridor and turn left, then right, unsure; a hand pushes a door handle that won't open; a green emergency exit sign glows faintly and out of focus through thick haze. Red strobe lighting, handheld, fast motion blur. [style block]
+## 6. QA (do this before you say you're done)
 
-**Shot 4: The map appears (hero shot)**
-> In a pure black void, glowing thin white architectural blueprint lines of an office floor plan draw themselves and unfold from flat 2D into a floating 3D wireframe building, then the camera rises smoothly to a perfect top-down view. Bright emerald-green light trails trace evacuation routes from every room toward the exits, like light flowing through veins. Clean, precise, calm, hypnotic. Slow smooth crane movement. [style block]
+1. Render stills at frames **0, 20, 60, 100, 130, 200, 270, 340, 420, 500, 600 and 659** for each composition, and **look at every one**:
+   - Georgian glyphs render correctly with no tofu or fallback font.
+   - No text sits inside the safe zones or overflows its box.
+   - Contrast is readable on a phone.
+   - The route visibly never crosses a wall.
+2. **Muted test:** from the stills alone, the story (pain → 5 minutes → 4 steps → real PDF → price → CTA) must be clear.
+3. **First-frame test:** frame 0 must already show text, not a blank black frame.
+4. Check durations with `ffprobe` (22.0s, 22.0s and 6.0s) and keep each file under 100 MB.
+5. Report what you built, which real assets you used and which you stylized, and a contact sheet image of the stills.
 
-**Shot 6: Everyone gets the plan**
-> A glowing green holographic floor plan lifts off a laptop screen and splits into dozens of copies that fly outward into a grid of floating smartphones and tablets in dark space; each device screen lights up emerald green one after another in a wave. Smooth, satisfying, elegant motion, reflective black surfaces. [style block]
+## 7. Meta ad copy (also save it as `out/ad-copy.md`)
 
-**Shot 7: Calm exit**
-> The same modern office corridor, now calm with soft clean light and light haze. A diverse group of office workers walks calmly in an orderly line toward a bright glowing green emergency exit door at the end of the corridor, seen from behind, slow steady dolly forward. Hopeful, controlled, reassuring. [style block]
-
-**Shot 5 (workspace): do NOT generate this with AI.** AI tools invent fake UI and garbled text. Instead:
-1. Screen-record the real EvacMap workspace at 2× resolution: upload plan → place exits → drop assembly point → generate route.
-2. Speed up the recording to 2–4×, then drop it into a 3D device mockup with a slow push-in (Jitter, Rotato, After Effects, or CapCut's 3D templates).
-3. Add a green glow pulse on each click, sync every action to a beat, and overlay the one-word captions.
-
-## 5. Music and sound prompt
-
-For Suno / Udio / Stable Audio, or as a brief for a stock library search (Artlist, Epidemic Sound):
-> 20-second cinematic trailer cue for a tech ad. 0–3s: blaring fire alarm with distorted heartbeat sub-bass and tension. 3–5s: sudden silence with a single clock tick. 5s: deep sub-drop impact, then a clean modern minimal synth-pulse beat at 120 BPM, confident and uplifting, building with crisp percussion. Ends at 19s on a single huge resolving hit with a short reverb tail. No vocals.
-
-Optional voiceover (calm, low, confident; one line only, at the end): **"EvacMap. Know the way out."**
-
-## 6. Ad copy for Meta Ads Manager
-
-- **Primary text (A, fear → relief):** When the alarm goes off, nobody reads a binder. EvacMap turns your floor plan into a live evacuation plan in minutes, with clear routes, exits and assembly points, shared to every phone. 🟢
-- **Primary text (B, short and edgy):** Your team has 90 seconds. Do they know the way out?
-- **Headline:** Know the way out.
-- **Description:** Build evacuation maps in minutes.
-- **CTA button:** Learn More (cold audiences) / Sign Up (retargeting)
-
-## 7. Before you produce, check these
-
-- [ ] Swap in the real product claims (e.g. "in minutes", "shared to every phone", "free trial"). Only say what EvacMap actually does.
-- [ ] Use real UI footage for shot 5. It's the proof, and it's the "how it's made" moment.
-- [ ] Watch it muted on a phone. The story must be clear from text alone.
-- [ ] First frame test: pause on frame 1. Would it stop your thumb?
-- [ ] Export: 1080×1920 H.264, under 4GB, with captions burned in, plus a 1080×1350 (4:5) recut.
+- **Primary text:** საევაკუაციო გეგმისთვის დღეებს ელოდები? EVACMAP-ში ატვირთავ ნახაზს — სისტემა თავად ამოიცნობს კედლებსა და კარებს, გაავლებს მარშრუტს რეალურ გასასვლელამდე და მოგიმზადებს დასაბეჭდ PDF-ს A4, A3 ან A2 ფორმატში. ISO 7010 ნიშნები, ქართულ-ინგლისური ლეგენდა, 12 თვე უფასო შესწორებები. რედაქტორი უფასოა — იხდი მხოლოდ ჩამოტვირთვისას. 19₾ სართულზე.
+- **Short variant:** 5 სართული ≠ 5 ინვოისი. დამატებითი სართული — 9₾. 🟢
+- **Headline:** ნახაზიდან საევაკუაციო გეგმამდე — 5 წუთში
+- **Description:** რედაქტორი უფასოა · 19₾ სართულზე
+- **CTA button:** Sign Up (or Learn More for cold audiences) → `https://evac.hsai.app`
